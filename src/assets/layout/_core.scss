@@ -1,0 +1,31 @@
+html {
+    height: 100%;
+    font-size: 14px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-color);
+    background-color: var(--surface-ground);
+    margin: 0;
+    padding: 0;
+    min-height: 80%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+}
+
+.layout-wrapper {
+    min-height: 100vh;
+}
+.p-scrollpanel:hover .p-scrollpanel-bar, .p-scrollpanel:active .p-scrollpanel-bar {
+    opacity: 0.5 !important;
+}
+.p-scrollpanel-bar{
+    background-color: var(--scroll-bar-color) !important;
+    width: .4rem !important;
+}
