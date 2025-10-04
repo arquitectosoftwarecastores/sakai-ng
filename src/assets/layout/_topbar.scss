@@ -3,16 +3,15 @@
 .layout-topbar {
     position: fixed;
     height: 4rem;
-    z-index: 1100;
+    z-index: 997;
     left: 0;
     top: 0;
     width: 100%;
     padding: 0 2rem;
-    background-color: var(--surface-top-bar);
+    background-color: var(--surface-card);
     transition: left var(--layout-section-transition-duration);
     display: flex;
     align-items: center;
-    
 
     .layout-topbar-logo-container {
         width: 20rem;
@@ -25,7 +24,7 @@
         align-items: center;
         font-size: 1.5rem;
         border-radius: var(--content-border-radius);
-        color: var(--top-bar-color);
+        color: var(--text-color);
         font-weight: 500;
         gap: 0.5rem;
 
@@ -46,12 +45,12 @@
         border-radius: 50%;
         width: 2.5rem;
         height: 2.5rem;
-        color: var(--top-bar-color);
+        color: var(--text-color);
         transition: background-color var(--element-transition-duration);
         cursor: pointer;
 
         &:hover {
-            background-color: var(--top-bar-color-hover);
+            background-color: var(--surface-hover);
         }
 
         &:focus-visible {

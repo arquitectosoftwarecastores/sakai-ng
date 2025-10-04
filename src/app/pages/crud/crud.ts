@@ -65,7 +65,7 @@ interface ExportColumn {
                 <p-button label="Export" icon="pi pi-upload" severity="secondary" (onClick)="exportCSV()" />
             </ng-template>
         </p-toolbar>
-       
+
         <p-table
             #dt
             [value]="products()"
@@ -73,7 +73,7 @@ interface ExportColumn {
             [columns]="cols"
             [paginator]="true"
             [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
-            [tableStyle]="{ 'min-height': '70vh' }"
+            [tableStyle]="{ 'min-width': '75rem' }"
             [(selection)]="selectedProducts"
             [rowHover]="true"
             dataKey="id"
@@ -95,48 +95,32 @@ interface ExportColumn {
                     <th style="width: 3rem">
                         <p-tableHeaderCheckbox />
                     </th>
-                    <th pSortableColumn="code" style="min-width: 16rem">Code
-                    <p-sortIcon field="code" />
-                    <p-columnFilter type="text" field="code" display="menu" placeholder="Search by code"></p-columnFilter>
-                    </th>
+                    <th style="min-width: 16rem">Code</th>
                     <th pSortableColumn="name" style="min-width:16rem">
                         Name
                         <p-sortIcon field="name" />
-                        <p-columnFilter type="text" field="name" display="menu" placeholder="Search by name"></p-columnFilter>
                     </th>
                     <th>Image</th>
                     <th pSortableColumn="price" style="min-width: 8rem">
                         Price
                         <p-sortIcon field="price" />
-                        <p-columnFilter type="number" field="price" display="menu" placeholder="Search by price"></p-columnFilter>
                     </th>
                     <th pSortableColumn="category" style="min-width:10rem">
                         Category
                         <p-sortIcon field="category" />
-                        <p-columnFilter type="text" field="category" display="menu" placeholder="Search by category"></p-columnFilter>
                     </th>
                     <th pSortableColumn="rating" style="min-width: 12rem">
                         Reviews
                         <p-sortIcon field="rating" />
-                        <p-columnFilter type="number" field="rating" display="menu" placeholder="Search by rating"></p-columnFilter>
                     </th>
                     <th pSortableColumn="inventoryStatus" style="min-width: 12rem">
                         Status
                         <p-sortIcon field="inventoryStatus" />
-                        <p-columnFilter field="inventoryStatus" matchMode="equals" display="menu">
-                            <ng-template #filter let-value let-filter="filterCallback">
-                                <p-select [ngModel]="value" [options]="statuses" (onChange)="filter($event.value)" placeholder="Any" [style]="{ 'min-width': '12rem' }">
-                                    <ng-template let-option #item>
-                                        <span [class]="'customer-badge status-' + option.label">{{ option.label }}</span>
-                                    </ng-template>
-                                </p-select>
-                            </ng-template>
-                        </p-columnFilter>
                     </th>
                     <th style="min-width: 12rem"></th>
                 </tr>
             </ng-template>
-            <ng-template #body let-product style="height: 50vh">
+            <ng-template #body let-product>
                 <tr>
                     <td style="width: 3rem">
                         <p-tableCheckbox [value]="product" />
@@ -161,7 +145,6 @@ interface ExportColumn {
                 </tr>
             </ng-template>
         </p-table>
-        
 
         <p-dialog [(visible)]="productDialog" [style]="{ width: '450px' }" header="Product Details" [modal]="true">
             <ng-template #content>
