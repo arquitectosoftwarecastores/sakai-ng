@@ -53,7 +53,6 @@ interface expandedRows {
                 [rows]="10"
                 [loading]="loading"
                 [rowHover]="true"
-                [showGridlines]="true"
                 [paginator]="true"
                 [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
                 responsiveLayout="scroll"
@@ -71,15 +70,17 @@ interface expandedRows {
                 </ng-template>
                 <ng-template #header>
                     <tr>
-                        <th style="min-width: 12rem">
+                        <th style="min-width: 12rem" pSortableColumn="name">
                             <div class="flex justify-between items-center">
                                 Name
+                                <p-sortIcon field="name"></p-sortIcon>
                                 <p-columnFilter type="text" field="name" display="menu" placeholder="Search by name"></p-columnFilter>
                             </div>
                         </th>
-                        <th style="min-width: 12rem">
+                        <th style="min-width: 12rem" pSortableColumn="country.name">
                             <div class="flex justify-between items-center">
                                 Country
+                                <p-sortIcon field="country.name"></p-sortIcon>
                                 <p-columnFilter type="text" field="country.name" display="menu" placeholder="Search by country"></p-columnFilter>
                             </div>
                         </th>
@@ -177,13 +178,13 @@ interface expandedRows {
                             {{ customer.balance | currency: 'USD' : 'symbol' }}
                         </td>
                         <td>
-                            <p-tag [value]="customer.status.toLowerCase()" [severity]="getSeverity(customer.status.toLowerCase())" styleClass="dark:!bg-surface-900" />
+                            <p-tag [value]="customer.status.toLowerCase()" [severity]="getSeverity(customer.status.toLowerCase())"  />
                         </td>
                         <td>
                             <p-progressbar [value]="customer.activity" [showValue]="false" [style]="{ height: '0.5rem' }" />
                         </td>
                         <td class="text-center">
-                            <p-tag [value]="customer.status.toLowerCase()" [severity]="getSeverity(customer.status.toLowerCase())" styleClass="dark:!bg-surface-900" />
+                            <p-tag [value]="customer.status.toLowerCase()" [severity]="getSeverity(customer.status.toLowerCase())"  />
                         </td>
                     </tr>
                 </ng-template>
