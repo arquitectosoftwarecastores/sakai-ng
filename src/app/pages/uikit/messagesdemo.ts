@@ -17,10 +17,10 @@ import { ToastModule } from 'primeng/toast';
                 <div class="card">
                     <div class="font-semibold text-xl mb-4">Toast</div>
                     <div class="flex flex-wrap gap-2">
-                        <p-button (click)="showSuccessViaToast()" label="Success" severity="success" raised />
-                        <p-button (click)="showInfoViaToast()" label="Info" severity="info" raised />
-                        <p-button (click)="showWarnViaToast()" label="Warn" severity="warn" raised/>
-                        <p-button (click)="showErrorViaToast()" label="Error" severity="danger" raised/>
+                        <p-button (click)="showSuccessViaToast()" label="Success" severity="success" />
+                        <p-button (click)="showInfoViaToast()" label="Info" severity="info" />
+                        <p-button (click)="showWarnViaToast()" label="Warn" severity="warn" />
+                        <p-button (click)="showErrorViaToast()" label="Error" severity="danger" />
                         <p-toast />
                     </div>
 
@@ -62,7 +62,7 @@ export class MessagesDemo {
     constructor(private service: MessageService) {}
 
     showInfoViaToast() {
-        this.service.add({ severity: 'info', summary: 'Info Message', detail: 'PrimeNG rocks', sticky: true });
+        this.service.add({ severity: 'info', summary: 'Info Message', detail: 'PrimeNG rocks' });
     }
 
     showWarnViaToast() {

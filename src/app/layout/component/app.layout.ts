@@ -6,22 +6,20 @@ import { AppTopbar } from './app.topbar';
 import { AppSidebar } from './app.sidebar';
 import { AppFooter } from './app.footer';
 import { LayoutService } from '../service/layout.service';
-import { ScrollPanel } from 'primeng/scrollpanel';
 
 @Component({
     selector: 'app-layout',
     standalone: true,
-    imports: [CommonModule, AppTopbar, AppSidebar, RouterModule, AppFooter, ScrollPanel],
+    imports: [CommonModule, AppTopbar, AppSidebar, RouterModule, AppFooter],
     template: `<div class="layout-wrapper" [ngClass]="containerClass">
         <app-topbar></app-topbar>
         <app-sidebar></app-sidebar>
-        <p-scrollpanel class="layout-main-container" [style]="{ height: 'calc(100vh - 8rem)' }">
-            <div class="layout-main" >
+        <div class="layout-main-container">
+            <div class="layout-main">
                 <router-outlet></router-outlet>
             </div>
-            <app-footer></app-footer>    
-        </p-scrollpanel>
-        
+            <app-footer></app-footer>
+        </div>
         <div class="layout-mask animate-fadein"></div>
     </div> `
 })

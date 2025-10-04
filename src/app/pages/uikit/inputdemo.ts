@@ -30,13 +30,13 @@ import { CountryService } from '../service/country.service';
 import { NodeService } from '../service/node.service';
 import { TreeNode } from 'primeng/api';
 import { Country } from '../service/customer.service';
-import { Editor } from 'primeng/editor';
 
 @Component({
     selector: 'app-input-demo',
     standalone: true,
     imports: [
         CommonModule,
+        FormsModule,
         InputTextModule,
         ButtonModule,
         CheckboxModule,
@@ -61,9 +61,7 @@ import { Editor } from 'primeng/editor';
         MultiSelectModule,
         ListboxModule,
         InputGroupAddonModule,
-        TextareaModule,
-        Editor,
-        FormsModule
+        TextareaModule
     ],
     template: ` <p-fluid class="flex flex-col md:flex-row gap-8">
             <div class="md:w-1/2">
@@ -92,20 +90,13 @@ import { Editor } from 'primeng/editor';
                     </p-floatlabel>
 
                     <div class="font-semibold text-xl">Textarea</div>
-                    <p-editor [(ngModel)]="text"  placeholder="Your Message" />
+                    <textarea pTextarea placeholder="Your Message" [autoResize]="true" rows="3" cols="30"></textarea>
 
                     <div class="font-semibold text-xl">AutoComplete</div>
                     <p-autocomplete [(ngModel)]="selectedAutoValue" [suggestions]="autoFilteredValue" optionLabel="name" placeholder="Search" dropdown multiple display="chip" (completeMethod)="filterCountry($event)" />
 
                     <div class="font-semibold text-xl">DatePicker</div>
-                    <p-datepicker [showIcon]="true" iconDisplay="input" [showButtonBar]="true" [(ngModel)]="calendarValue"></p-datepicker>
-
-                    <div class="font-semibold text-xl">TimePicker</div>
-                    <p-datepicker [showIcon]="true" iconDisplay="input" [(ngModel)]="timeValue" [timeOnly]="true" >
-                        <ng-template #inputicon let-clickCallBack="clickCallBack">
-                            <i class="pi pi-clock" (click)="clickCallBack($event)"></i>
-                        </ng-template>
-                    </p-datepicker>
+                    <p-datepicker [showIcon]="true" [showButtonBar]="true" [(ngModel)]="calendarValue"></p-datepicker>
 
                     <div class="font-semibold text-xl">InputNumber</div>
                     <p-inputnumber [(ngModel)]="inputNumberValue" showButtons mode="decimal"></p-inputnumber>
@@ -257,8 +248,6 @@ export class InputDemo implements OnInit {
 
     calendarValue: any = null;
 
-    timeValue: any = null;
-
     inputNumberValue: any = null;
 
     sliderValue: number = 50;
@@ -326,10 +315,7 @@ export class InputDemo implements OnInit {
 
     nodeService = inject(NodeService);
 
-    text: string | undefined;
-
     ngOnInit() {
-
         this.countryService.getCountries().then((countries) => {
             this.autoValue = countries;
         });

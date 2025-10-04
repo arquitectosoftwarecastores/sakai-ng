@@ -9,7 +9,7 @@ body {
     background-color: var(--surface-ground);
     margin: 0;
     padding: 0;
-    min-height: 80%;
+    min-height: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.2;
@@ -21,11 +21,4 @@ a {
 
 .layout-wrapper {
     min-height: 100vh;
-}
-.p-scrollpanel:hover .p-scrollpanel-bar, .p-scrollpanel:active .p-scrollpanel-bar {
-    opacity: 0.5 !important;
-}
-.p-scrollpanel-bar{
-    background-color: var(--scroll-bar-color) !important;
-    width: .4rem !important;
 }
