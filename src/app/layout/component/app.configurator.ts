@@ -149,7 +149,7 @@ export class AppConfigurator {
 
     primaryColors = computed<SurfacesType[]>(() => {
         const presetPalette = presets[this.layoutService.layoutConfig().preset as KeyOfType<typeof presets>].primitive;
-         const colors = [ 'amber', 'red', 'zinc'];
+         const colors = [ 'amber', 'red', 'noir'];
         const palettes: SurfacesType[] = [];
 
         
@@ -212,7 +212,7 @@ export class AppConfigurator {
         return palettes;
     });
 
-     getPresetExt() {
+ getPresetExt() {
         const color: SurfacesType = this.primaryColors().find((c) => c.name === this.selectedPrimaryColor()) || {};
         const preset = this.layoutService.layoutConfig().preset;
 
@@ -230,7 +230,7 @@ export class AppConfigurator {
                         700: '{surface.700}',
                         800: '{surface.800}',
                         900: '{surface.900}',
-                        950: '{surface.950}'
+                        950: '#36363aff'
                     },
                     colorScheme: {
                         light: {
@@ -250,7 +250,7 @@ export class AppConfigurator {
                         dark: {
                             primary: {
                                 color: '{primary.50}',
-                                contrastColor: '{primary.950}',
+                                contrastColor: '{primary.900}',
                                 hoverColor: '{primary.200}',
                                 activeColor: '{primary.300}'
                             },
@@ -286,7 +286,7 @@ export class AppConfigurator {
                             dark: {
                                 primary: {
                                     color: '{primary.500}',
-                                    contrastColor: '{surface.900}',
+                                    contrastColor: '#ffffff',
                                     hoverColor: '{primary.400}',
                                     activeColor: '{primary.300}'
                                 },
@@ -322,7 +322,7 @@ export class AppConfigurator {
                         dark: {
                             primary: {
                                 color: '{primary.400}',
-                                contrastColor: '{surface.900}',
+                                contrastColor: '{surface.50}',
                                 hoverColor: '{primary.300}',
                                 activeColor: '{primary.200}'
                             },
@@ -338,7 +338,6 @@ export class AppConfigurator {
             };
         }
     }
-
 
     updateColors(event: any, type: string, color: any) {
         if (type === 'primary') {

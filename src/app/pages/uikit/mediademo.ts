@@ -7,12 +7,14 @@ import { ImageModule } from 'primeng/image';
 import { TagModule } from 'primeng/tag';
 import { PhotoService } from '../service/photo.service';
 import { Product, ProductService } from '../service/product.service';
+import { ImageCompareModule } from 'primeng/imagecompare';
 
 @Component({
     selector: 'app-media-demo',
     standalone: true,
-    imports: [CommonModule, CarouselModule, ButtonModule, GalleriaModule, ImageModule, TagModule],
-    template: `<div class="card">
+    imports: [CommonModule, CarouselModule, ButtonModule, GalleriaModule, ImageModule, TagModule, ImageCompareModule],
+    template: `
+        <div class="card">
             <div class="font-semibold text-xl mb-4">Carousel</div>
             <p-carousel [value]="products" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="carouselResponsiveOptions">
                 <ng-template let-product #item>
@@ -37,23 +39,31 @@ import { Product, ProductService } from '../service/product.service';
                 </ng-template>
             </p-carousel>
         </div>
+        <div class="grid grid-cols-2 grid-rows-1 gap-4">
+            <div class="card flex col-lg-2">
+                <p-imagecompare class="shadow-lg rounded-2xl" >
+                    <ng-template #left>
+                        <img src="https://primefaces.org/cdn/primevue/images/compare/island1.jpg" />
+                    </ng-template>
+                    <ng-template #right>
+                        <img src="https://primefaces.org/cdn/primevue/images/compare/island2.jpg" />
+                    </ng-template>
+                </p-imagecompare>
+            </div>
 
-        <div class="card">
-            <div class="font-semibold text-xl mb-4">Image</div>
-            <p-image src="https://primefaces.org/cdn/primeng/images/galleria/galleria10.jpg" alt="Image" width="250" />
+            <div class="card col-lg-2 ">
+                <div class="font-semibold text-xl mb-4">Galleria</div>
+                <p-galleria [value]="images" [responsiveOptions]="galleriaResponsiveOptions" [containerStyle]="{ 'max-width': '640px' }" [numVisible]="5">
+                    <ng-template #item let-item>
+                        <img [src]="item.itemImageSrc" style="width:100%" />
+                    </ng-template>
+                    <ng-template #thumbnail let-item>
+                        <img [src]="item.thumbnailImageSrc" />
+                    </ng-template>
+                </p-galleria>
+            </div>
         </div>
-
-        <div class="card">
-            <div class="font-semibold text-xl mb-4">Galleria</div>
-            <p-galleria [value]="images" [responsiveOptions]="galleriaResponsiveOptions" [containerStyle]="{ 'max-width': '640px' }" [numVisible]="5">
-                <ng-template #item let-item>
-                    <img [src]="item.itemImageSrc" style="width:100%" />
-                </ng-template>
-                <ng-template #thumbnail let-item>
-                    <img [src]="item.thumbnailImageSrc" />
-                </ng-template>
-            </p-galleria>
-        </div>`,
+        `,
     providers: [ProductService, PhotoService]
 })
 export class MediaDemo implements OnInit {

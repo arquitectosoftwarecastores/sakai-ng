@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { CommonModule } from '@angular/common';
@@ -21,7 +20,6 @@ import { CardModule } from 'primeng/card';
     imports: [
         CardModule,
         CommonModule,
-        BreadcrumbModule,
         TieredMenuModule,
         IconFieldModule,
         InputIconModule,
@@ -38,18 +36,6 @@ import { CardModule } from 'primeng/card';
         TabsModule
     ],
     template: `
-        <div class="flex flex-col gap-8">
-            <div
-                class="block rounded-[--content-border-radius] bg-[--surface-card] text-[--p-button-primary-color]">
-                <div class="px-6 py-3 bg-[--p-button-primary-background] rounded-t-[--content-border-radius]" >
-                    Menu
-                </div>
-                <div class="p-1">
-                    <p-breadcrumb [model]="breadcrumbItems" [home]="breadcrumbHome"></p-breadcrumb>
-                </div>
-            </div>
-        </div>
-
         <div class="flex flex-col md:flex-row gap-8 mt-6">
             <div class="md:w-1/2">
                 <div class="card">
@@ -81,7 +67,7 @@ import { CardModule } from 'primeng/card';
             <div class="md:w-1/2">
                 <div class="card">
                     <div class="font-semibold text-xl mb-4">Overlay Menu</div>
-                    <p-menu #menu [popup]="true" [model]="overlayMenuItems"></p-menu>
+                    <p-menu appendTo="body" #menu [popup]="true" [model]="overlayMenuItems" ></p-menu>
                     <button type="button" pButton icon="pi pi-chevron-down" label="Options" (click)="menu.toggle($event)" style="width:auto"></button>
                 </div>
             </div>
@@ -89,7 +75,7 @@ import { CardModule } from 'primeng/card';
                 <div class="card" #anchor>
                     <div class="font-semibold text-xl mb-4">Context Menu</div>
                     Right click to display.
-                    <p-contextmenu [target]="anchor" [model]="contextMenuItems"></p-contextmenu>
+                    <p-contextmenu appendTo="body" [target]="anchor" [model]="contextMenuItems"></p-contextmenu>
                 </div>
             </div>
         </div>
@@ -98,8 +84,6 @@ import { CardModule } from 'primeng/card';
 })
 export class MenuDemo {
     
-    breadcrumbHome = { icon: 'pi pi-home', to: '/' };
-    breadcrumbItems = [{ label: 'Menu' }];
     overlayMenuItems = [
         {
             label: 'Save',

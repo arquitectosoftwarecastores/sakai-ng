@@ -22,7 +22,6 @@ export class AppMenu {
     ngOnInit() {
         this.model = [
             {
-                label: 'Home',
                 items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }]
             },
             {
