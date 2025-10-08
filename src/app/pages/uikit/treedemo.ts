@@ -64,10 +64,7 @@ export class TreeDemo implements OnInit {
         ];
 
         this.selectedTreeTableValue = {
-            '0-0': {
-                partialChecked: false,
-                checked: true
-            }
+
         };
     }
 }
