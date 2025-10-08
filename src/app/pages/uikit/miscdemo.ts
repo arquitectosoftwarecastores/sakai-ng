@@ -114,7 +114,7 @@ import { Tag } from 'primeng/tag';
                 <div class="card">
                     <div class="font-semibold text-xl mb-4">Tag</div>
                     <div class="font-semibold mb-4">Default</div>
-                    <div class="flex gap-2">
+                    <div class="flex flex-wrap gap-2">
                         <p-tag value="Primary"></p-tag>
                         <p-tag severity="success" value="Success"></p-tag>
                         <p-tag severity="info" value="Info"></p-tag>
@@ -123,7 +123,7 @@ import { Tag } from 'primeng/tag';
                     </div>
 
                     <div class="font-semibold my-4">Pills</div>
-                    <div class="flex gap-2">
+                    <div class="flex flex-wrap gap-2">
                         <p-tag value="Primary" [rounded]="true"></p-tag>
                         <p-tag severity="success" value="Success" [rounded]="true"></p-tag>
                         <p-tag severity="info" value="Info" [rounded]="true"></p-tag>
@@ -132,7 +132,7 @@ import { Tag } from 'primeng/tag';
                     </div>
 
                     <div class="font-semibold my-4">Icons</div>
-                    <div class="flex gap-2">
+                    <div class="flex flex-wrap gap-2">
                         <p-tag icon="pi pi-user" value="Primary"></p-tag>
                         <p-tag icon="pi pi-check" severity="success" value="Success"></p-tag>
                         <p-tag icon="pi pi-info-circle" severity="info" value="Info"></p-tag>
