@@ -1,4 +1,4 @@
-import { Component, inject, Renderer2, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
@@ -15,9 +15,9 @@ import { CardTitleComponent } from "./card-title/card-title.component";
     template: `<div class="layout-wrapper" [ngClass]="containerClass">
         <app-topbar></app-topbar>
         <app-sidebar></app-sidebar>
-        <p-scroll-panel class="layout-main-container" [style]="{ height: 'calc(100vh - 8rem)' }">
+        <p-scroll-panel #scrollPanel class="layout-main-container" [style]="{ height: 'calc(100vh - 8rem)' }">
             <div class="layout-main">
-                @if (layoutService.showCardTitle() && !router.url.includes('dashboard')) {    
+                @if (layoutService.showCardTitle()) {    
                     <app-card-title/>
                 }
                 <router-outlet></router-outlet>
@@ -26,7 +26,7 @@ import { CardTitleComponent } from "./card-title/card-title.component";
         <div class="layout-mask animate-fadein"></div>
     </div> `
 })
-export class AppLayout {
+export class AppLayout implements OnInit {
 
     public _activatedRoute = inject(ActivatedRoute);
 
@@ -38,13 +38,21 @@ export class AppLayout {
 
     @ViewChild(AppTopbar) appTopBar!: AppTopbar;
 
+     @ViewChild('scrollPanel') scrollPanel!: ScrollPanel;
+
     ngOnChanges(){
         console.log(this._activatedRoute.url.subscribe( url => {
       console.log(url);}));
     }
 
     ngOnInit() {
-        console.log(this.route.snapshot.routeConfig?.path); // ActivatedRouteSnapshot
+        this.router.events.pipe(
+            filter(event => event instanceof NavigationEnd)
+        ).subscribe(() => {
+            setTimeout(() => {
+                this.scrollPanel?.scrollTop(0);
+            });
+        });
     }
 
     constructor(
