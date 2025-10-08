@@ -84,6 +84,11 @@ declare type SurfacesType = {
                 <span class="text-sm text-muted-color font-semibold">Menu Mode</span>
                 <p-selectbutton [ngModel]="menuMode()" (ngModelChange)="onMenuModeChange($event)" [options]="menuModeOptions" [allowEmpty]="false" size="small" />
             </div>
+
+            <div class="flex flex-col gap-2">
+                <span class="text-sm text-muted-color font-semibold">Show Card Title</span>
+                <p-selectbutton [ngModel]="showCardTitle()" (ngModelChange)="onShowCardTitleChange($event)" [options]="cardTitleOptions" [allowEmpty]="false" size="small" />
+            </div>
         </div>
     `,
     host: {
@@ -91,6 +96,9 @@ declare type SurfacesType = {
     }
 })
 export class AppConfigurator {
+    public cardTitleOptions = [{ label: 'Show', value: true }, { label: 'Hide', value: false }];
+    public showCardTitle = computed(() => this.layoutService.layoutConfig().showCardTitle);
+
     router = inject(Router);
 
     config: PrimeNG = inject(PrimeNG);
@@ -110,10 +118,16 @@ export class AppConfigurator {
         { label: 'Overlay', value: 'overlay' }
     ];
 
+    genericOptions = [
+        { label: 'Si', value: 'Si' },
+        { label: 'No', value: 'No' }
+    ];
+
     ngOnInit() {
         if (isPlatformBrowser(this.platformId)) {
             this.onPresetChange(this.layoutService.layoutConfig().preset);
         }
+        
     }
 
     surfaces: SurfacesType[] = [
@@ -367,5 +381,8 @@ export class AppConfigurator {
 
     onMenuModeChange(event: string) {
         this.layoutService.layoutConfig.update((prev) => ({ ...prev, menuMode: event }));
+    }
+    public onShowCardTitleChange(event: boolean): void {
+        this.layoutService.layoutConfig.update((prev) => ({ ...prev, showCardTitle: event }));
     }
 }

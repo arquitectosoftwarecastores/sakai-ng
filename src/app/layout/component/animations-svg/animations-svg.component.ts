@@ -1,6 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
-import { EnvironmentApp } from '@interfaces/environment';
-import { ENV_APP } from '@tokens/environment.config';
+import { Component, Input } from '@angular/core';
 import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 
 @Component({
@@ -16,11 +14,10 @@ export class AnimationsSvgComponent {
   @Input() containerClass: string = "";
 
   public options: AnimationOptions = {} as AnimationOptions;
-  public envApp: EnvironmentApp = inject(ENV_APP);
 
   ngOnInit() {
     this.options = {
-      path: `${this.envApp.URL_BASE_DEPLOY}/assets/animated/${this.animationName}/data.json`
+      path: `assets/animated/${this.animationName}/data.json`
     };
   }
 

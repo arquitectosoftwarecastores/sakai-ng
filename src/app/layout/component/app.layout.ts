@@ -17,7 +17,9 @@ import { CardTitleComponent } from "./card-title/card-title.component";
         <app-sidebar></app-sidebar>
         <p-scroll-panel class="layout-main-container" [style]="{ height: 'calc(100vh - 8rem)' }">
             <div class="layout-main">
-                <app-card-title/>
+                @if (layoutService.showCardTitle() && !router.url.includes('dashboard')) {    
+                    <app-card-title/>
+                }
                 <router-outlet></router-outlet>
             </div>
         </p-scroll-panel>

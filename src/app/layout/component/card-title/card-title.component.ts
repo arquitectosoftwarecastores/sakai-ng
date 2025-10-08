@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { BreadcrumbService } from '../../service/breadcrumb.service';
 import { MenuItem } from 'primeng/api';
+import { Dashboard } from '../../../pages/dashboard/dashboard';
 
 
 @Component({
@@ -23,7 +24,10 @@ export class CardTitleComponent implements OnInit{
   ngOnInit(): void {
     this.breadcrumbService.breadcrumbs$.subscribe(items => {
       this.items = items;
-      console.log(this.items);
+      
+      if(items.length < 1 ){
+        this.items = [{label: 'Dashboard'}]
+      }
       this.label = this.items[this.items.length - 1].label;
     });
     
