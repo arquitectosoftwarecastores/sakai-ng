@@ -38,7 +38,7 @@ export class AppLayout implements OnInit {
 
     @ViewChild(AppTopbar) appTopBar!: AppTopbar;
 
-     @ViewChild('scrollPanel') scrollPanel!: ScrollPanel;
+    @ViewChild('scrollPanel') scrollPanel!: ScrollPanel;
 
     ngOnChanges(){
         console.log(this._activatedRoute.url.subscribe( url => {
