@@ -7,6 +7,7 @@ export interface layoutConfig {
     surface?: string | undefined | null;
     darkTheme?: boolean;
     menuMode?: string;
+    showCardTitle?: boolean;
 }
 
 interface LayoutState {
@@ -31,7 +32,8 @@ export class LayoutService {
         primary: 'CastoresR',
         surface: 'castores',
         darkTheme: false,
-        menuMode: 'static'
+        menuMode: 'static',
+        showCardTitle: true
     };
 
     _state: LayoutState = {
@@ -41,6 +43,8 @@ export class LayoutService {
         staticMenuMobileActive: false,
         menuHoverActive: false
     };
+
+    showCardTitle = computed(() => this.layoutConfig().showCardTitle);
 
     layoutConfig = signal<layoutConfig>(this._config);
 
