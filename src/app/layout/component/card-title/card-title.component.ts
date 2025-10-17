@@ -23,12 +23,8 @@ export class CardTitleComponent implements OnInit{
 
   ngOnInit(): void {
     this.breadcrumbService.breadcrumbs$.subscribe(items => {
-      this.items = items;
-      
-      if(items.length < 1 ){
-        this.items = [{label: 'Dashboard'}]
-      }
-      this.label = this.items[this.items.length - 1].label;
+      this.items = items.length ? items : [{ label: 'Dashboard' }];
+    this.label = this.items[this.items.length - 1]?.label ?? '';
     });
     
   }
