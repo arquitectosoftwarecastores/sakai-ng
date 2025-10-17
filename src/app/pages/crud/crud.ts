@@ -106,7 +106,7 @@ interface ExportColumn {
                         <th pSortableColumn="price" style="min-width: 8rem">
                             Price
                             <p-sortIcon field="price" />
-                            <p-columnFilter type="number" field="price" display="menu" placeholder="Search by price"></p-columnFilter>
+                            <p-columnFilter type="numeric" field="price" display="menu" placeholder="Search by price"></p-columnFilter>
                         </th>
                         <th pSortableColumn="category" style="min-width:10rem">
                             Category
@@ -116,7 +116,7 @@ interface ExportColumn {
                         <th pSortableColumn="rating" style="min-width: 12rem">
                             Reviews
                             <p-sortIcon field="rating" />
-                            <p-columnFilter type="number" field="rating" display="menu" placeholder="Search by rating"></p-columnFilter>
+                            <p-columnFilter type="numeric" field="rating" display="menu" placeholder="Search by rating"></p-columnFilter>
                         </th>
                         <th pSortableColumn="inventoryStatus" style="min-width: 12rem">
                             Status
