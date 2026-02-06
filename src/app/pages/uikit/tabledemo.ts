@@ -18,6 +18,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { TagModule } from 'primeng/tag';
 import { Customer, CustomerService, Representative } from '../service/customer.service';
 import { Product, ProductService } from '../service/product.service';
+import { StyleClass } from "primeng/styleclass";
 
 interface expandedRows {
     [key: string]: boolean;
@@ -27,23 +28,24 @@ interface expandedRows {
     selector: 'app-table-demo',
     standalone: true,
     imports: [
-        TableModule,
-        MultiSelectModule,
-        SelectModule,
-        InputIconModule,
-        TagModule,
-        InputTextModule,
-        SliderModule,
-        ProgressBarModule,
-        ToggleButtonModule,
-        ToastModule,
-        CommonModule,
-        FormsModule,
-        ButtonModule,
-        RatingModule,
-        RippleModule,
-        IconFieldModule
-    ],
+    TableModule,
+    MultiSelectModule,
+    SelectModule,
+    InputIconModule,
+    TagModule,
+    InputTextModule,
+    SliderModule,
+    ProgressBarModule,
+    ToggleButtonModule,
+    ToastModule,
+    CommonModule,
+    FormsModule,
+    ButtonModule,
+    RatingModule,
+    RippleModule,
+    IconFieldModule,
+    StyleClass
+],
     template: ` <div class="card">
             <div class="font-semibold text-xl mb-4">Filtering</div>
             <p-table
@@ -58,14 +60,14 @@ interface expandedRows {
                 responsiveLayout="scroll"
             >
                 <ng-template #caption>
-                    <div class="flex justify-between items-center flex-column sm:flex-row">
-                        <button pButton label="Clear" class="p-button-outlined mb-2" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
-                        <p-iconfield iconPosition="left" class="ml-auto">
+                    <div class="flex flex-start items-center flex-column sm:flex-row">
+                        <p-iconfield iconPosition="left">
                             <p-inputicon>
                                 <i class="pi pi-search"></i>
                             </p-inputicon>
-                            <input pInputText type="text" (input)="onGlobalFilter(dt1, $event)" placeholder="Search keyword" />
+                            <input pInputText type="text" (input)="onGlobalFilter(dt1, $event)" placeholder="Buscar" />
                         </p-iconfield>
+                        <button pButton label="Limpiar" class="p-button-outlined ml-2" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
                     </div>
                 </ng-template>
                 <ng-template #header>
@@ -196,42 +198,6 @@ interface expandedRows {
                 <ng-template #loadingbody>
                     <tr>
                         <td colspan="8">Loading customers data. Please wait.</td>
-                    </tr>
-                </ng-template>
-            </p-table>
-        </div>
-
-        <div class="card">
-            <div class="font-semibold text-xl mb-4">Frozen Columns</div>
-            <p-togglebutton [(ngModel)]="balanceFrozen" [onIcon]="'pi pi-lock'" offIcon="pi pi-lock-open" [onLabel]="'Balance'" offLabel="Balance" />
-
-            <p-table [value]="customers2" [scrollable]="true" scrollHeight="400px" styleClass="mt-4">
-                <ng-template #header>
-                    <tr>
-                        <th style="min-width:200px" pFrozenColumn class="font-bold">Name</th>
-                        <th style="min-width:100px">Id</th>
-                        <th style="min-width:200px">Country</th>
-                        <th style="min-width:200px">Date</th>
-                        <th style="min-width:200px">Company</th>
-                        <th style="min-width:200px">Status</th>
-                        <th style="min-width:200px">Activity</th>
-                        <th style="min-width:200px">Representative</th>
-                        <th style="min-width:200px" alignFrozen="right" pFrozenColumn [frozen]="balanceFrozen" [ngClass]="{ 'font-bold': balanceFrozen }">Balance</th>
-                    </tr>
-                </ng-template>
-                <ng-template #body let-customer>
-                    <tr>
-                        <td pFrozenColumn class="font-bold">{{ customer.name }}</td>
-                        <td style="min-width:100px">{{ customer.id }}</td>
-                        <td>{{ customer.country.name }}</td>
-                        <td>{{ customer.date }}</td>
-                        <td>{{ customer.company }}</td>
-                        <td>{{ customer.status }}</td>
-                        <td>{{ customer.activity }}</td>
-                        <td>{{ customer.representative.name }}</td>
-                        <td alignFrozen="right" pFrozenColumn [frozen]="balanceFrozen" [ngClass]="{ 'font-bold': balanceFrozen }">
-                            {{ formatCurrency(customer.balance) }}
-                        </td>
                     </tr>
                 </ng-template>
             </p-table>
