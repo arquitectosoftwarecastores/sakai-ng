@@ -373,7 +373,7 @@ interface expandedRows {
     providers: [ConfirmationService, MessageService, CustomerService, ProductService]
 })
 export class TableDemo implements OnInit {
-    customers1: Customer[] = [];
+    customers_1: Customer[] = [];
 
     customers2: Customer[] = [];
 
