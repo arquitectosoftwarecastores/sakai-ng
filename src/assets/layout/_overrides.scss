@@ -1,0 +1,19 @@
+@layer components {
+    .p-datatable .p-datatable-thead>tr>th {
+        @apply bg-primary text-[--primary-contrast-color];
+
+        .p-button-text.p-button-secondary {
+            @apply text-[--primary-contrast-color];
+        }
+        &.p-datatable-sortable-column:not(.p-datatable-column-sorted):hover {
+            @apply text-[--primary-contrast-color] bg-primary-700;
+
+
+        }
+        &.p-datatable-sortable-column.p-datatable-column-sorted
+            .p-button-text.p-button-secondary {
+                @apply text-[--p-datatable-header-cell-selected-color];
+            }
+        
+    }
+}
