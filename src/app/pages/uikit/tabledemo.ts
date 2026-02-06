@@ -375,7 +375,7 @@ interface expandedRows {
 export class TableDemo implements OnInit {
     customers_1: Customer[] = [];
 
-    customers2: Customer[] = [];
+    customers2_2: Customer[] = [];
 
     customers3: Customer[] = [];
 
