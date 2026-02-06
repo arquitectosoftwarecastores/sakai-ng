@@ -1,0 +1,14 @@
+name: Quality Check
+on: [pull_request] # Se activa en cada PR
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      # Para Angular/TS
+      - name: Install dependencies
+        run: npm install
+      - name: Run ESLint
+        run: npx eslint . # Esto fallará si no hay prefijos "lst"
