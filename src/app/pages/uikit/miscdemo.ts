@@ -90,25 +90,6 @@ import { Tag } from 'primeng/tag';
                         <p-avatar label="U" size="xlarge" />
                     </p-overlaybadge>
                 </div>
-
-                <div class="card">
-                    <div class="font-semibold text-xl mb-4">Skeleton</div>
-                    <div class="rounded-border border border-surface p-6">
-                        <div class="flex mb-4">
-                            <p-skeleton shape="circle" size="4rem" styleClass="mr-2"></p-skeleton>
-                            <div>
-                                <p-skeleton width="10rem" styleClass="mb-2"></p-skeleton>
-                                <p-skeleton width="5rem" styleClass="mb-2"></p-skeleton>
-                                <p-skeleton height=".5rem"></p-skeleton>
-                            </div>
-                        </div>
-                        <p-skeleton width="100%" height="150px"></p-skeleton>
-                        <div class="flex justify-between mt-4">
-                            <p-skeleton width="4rem" height="2rem"></p-skeleton>
-                            <p-skeleton width="4rem" height="2rem"></p-skeleton>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="md:w-1/2">
                 <div class="card">
@@ -120,24 +101,6 @@ import { Tag } from 'primeng/tag';
                         <p-tag severity="info" value="Info"></p-tag>
                         <p-tag severity="warn" value="Warning"></p-tag>
                         <p-tag severity="danger" value="Danger"></p-tag>
-                    </div>
-
-                    <div class="font-semibold my-4">Pills</div>
-                    <div class="flex flex-wrap gap-2">
-                        <p-tag value="Primary" [rounded]="true"></p-tag>
-                        <p-tag severity="success" value="Success" [rounded]="true"></p-tag>
-                        <p-tag severity="info" value="Info" [rounded]="true"></p-tag>
-                        <p-tag severity="warn" value="Warning" [rounded]="true"></p-tag>
-                        <p-tag severity="danger" value="Danger" [rounded]="true"></p-tag>
-                    </div>
-
-                    <div class="font-semibold my-4">Icons</div>
-                    <div class="flex flex-wrap gap-2">
-                        <p-tag icon="pi pi-user" value="Primary"></p-tag>
-                        <p-tag icon="pi pi-check" severity="success" value="Success"></p-tag>
-                        <p-tag icon="pi pi-info-circle" severity="info" value="Info"></p-tag>
-                        <p-tag icon="pi pi-exclamation-triangle" severity="warn" value="Warning"></p-tag>
-                        <p-tag icon="pi pi-times" severity="danger" value="Danger"></p-tag>
                     </div>
                 </div>
 
@@ -165,6 +128,24 @@ import { Tag } from 'primeng/tag';
                         <p-chip label="Asiya Javayant" image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" styleClass="m-1"></p-chip>
                         <p-chip label="Onyama Limba" image="https://primefaces.org/cdn/primeng/images/demo/avatar/onyamalimba.png" styleClass="m-1"></p-chip>
                         <p-chip label="Xuxue Feng" image="https://primefaces.org/cdn/primeng/images/demo/avatar/xuxuefeng.png" styleClass="m-1" [removable]="true"></p-chip>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="font-semibold text-xl mb-4">Skeleton</div>
+                    <div class="rounded-border border border-surface p-6">
+                        <div class="flex mb-4">
+                            <p-skeleton shape="circle" size="4rem" styleClass="mr-2"></p-skeleton>
+                            <div>
+                                <p-skeleton width="10rem" styleClass="mb-2"></p-skeleton>
+                                <p-skeleton width="5rem" styleClass="mb-2"></p-skeleton>
+                                <p-skeleton height=".5rem"></p-skeleton>
+                            </div>
+                        </div>
+                        <p-skeleton width="100%" height="150px"></p-skeleton>
+                        <div class="flex justify-between mt-4">
+                            <p-skeleton width="4rem" height="2rem"></p-skeleton>
+                            <p-skeleton width="4rem" height="2rem"></p-skeleton>
+                        </div>
                     </div>
                 </div>
             </div>
