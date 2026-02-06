@@ -64,14 +64,6 @@ import { SplitButtonModule } from 'primeng/splitbutton';
         </div>
         <div class="md:w-1/2">
             <div class="card flex flex-col gap-4">
-                <div class="font-semibold text-xl">Icons</div>
-                <div class="flex flex-wrap gap-2">
-                    <p-button icon="pi pi-bookmark" raised ></p-button>
-                    <p-button label="Bookmark" icon="pi pi-bookmark" raised></p-button>
-                    <p-button label="Bookmark" icon="pi pi-bookmark" iconPos="right" raised></p-button>
-                </div>
-            </div>
-            <div class="card flex flex-col gap-4">
                 <div class="font-semibold text-xl">Raised</div>
                 <div class="flex flex-wrap gap-2">
                     <p-button label="Primary" raised />
