@@ -9,7 +9,8 @@
 		"buildProductionGlass": "ng build --configuration production --aot --output-hashing=all --base-href /sakai-ng/",
         "watch": "ng build --watch --configuration development",
         "format": "prettier --write \"**/*.{js,mjs,ts,mts,d.ts,html}\" --cache",
-        "test": "ng test"
+        "test": "ng test",
+        "lint": "ng lint --max-warnings=0"
     },
     "private": true,
     "dependencies": {
